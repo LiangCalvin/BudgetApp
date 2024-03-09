@@ -1,0 +1,27 @@
+/* Transaction.css */
+
+.transaction {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .transaction h2 {
+    margin-bottom: 10px;
+  }
+  
+  .transaction ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .transaction ul li {
+    margin-bottom: 5px;
+  }
+  
+  /* Additional styles for the Item component */
+  .transaction ul li.item {
+    margin-left: 20px; /* Adjust indentation for Item component */
+  }
+  

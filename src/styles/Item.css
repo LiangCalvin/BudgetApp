@@ -1,0 +1,27 @@
+.item {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.item ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item li {
+  font-size: 16px;
+  color: #333;
+}
+
+.item li:before {
+  content: "•"; /* Bullet point */
+  margin-right: 5px;
+}
+
+.item li span {
+  font-weight: bold;
+}

@@ -1,0 +1,16 @@
+/* Hello.css */
+
+.hello {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .hello p {
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
