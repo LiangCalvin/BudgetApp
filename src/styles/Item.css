@@ -17,11 +17,18 @@
   color: #333;
 }
 
-.item li:before {
-  content: "•"; /* Bullet point */
-  margin-right: 5px;
-}
-
 .item li span {
   font-weight: bold;
+}
+
+/* Styles for positive prices */
+.item.positive {
+  background-color: lightgreen; /* Change background color for positive prices */
+  color: green; /* Change text color for positive prices */
+}
+
+/* Styles for negative prices */
+.item.negative {
+  background-color: lightcoral; /* Change background color for negative prices */
+  color: red; /* Change text color for negative prices */
 }

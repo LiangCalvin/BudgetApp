@@ -6,10 +6,12 @@
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    text-align: center; /* Center align the button */
   }
   
   .form-control {
     margin-bottom: 20px;
+    text-align: center; /* Center align the content */
   }
   
   .form-control label {
@@ -18,14 +20,14 @@
   }
   
   .form-control input {
-    width: 100%;
+    width: calc(100% - 16px); /* Adjusted width to account for padding */
     padding: 8px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
   }
   
-  .form-control button {
+  .form-container button {
     display: block;
     width: 100%;
     padding: 10px;

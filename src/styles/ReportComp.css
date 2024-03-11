@@ -1,0 +1,46 @@
+.report-container {
+    background-color: #f0f0f0eb;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 20px;
+    border-radius: 20px; /* Increased border radius for a more rounded look */
+
+  }
+  
+  .balance {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .report-details {
+    display: flex;
+    justify-content: space-between;
+
+  }
+  
+  .income,
+  .expense {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .income {
+    background-color: #2fd05f; /* Light blue for income */
+    border-radius: 20px; /* Increased border radius for a more rounded look */
+    margin-right: 5px; /* Add right margin to create space between Income and Expense */
+    padding: 20px; /* Increase padding to make the box taller */
+  }
+  
+  .expense {
+    background-color: #dc4a4a; /* Light red for expense */
+    border-radius: 20px; /* Increased border radius for a more rounded look */
+    padding: 20px; /* Increase padding to make the box taller */
+  }
+  
+  .report-details p {
+    margin: 0;
+    font-size: 16px;
+  }
+  
