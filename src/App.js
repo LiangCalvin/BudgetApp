@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { DataProvider } from "./data/DataContext"; // Import the DataProvider from DataContext
 import ReportComponent from "./components/ReportComp";
 import { useReducer } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 const Title = () => {
   return <h1>Budget App</h1>;
@@ -46,7 +47,7 @@ function App() {
   const [datas, setItems] = useState([]);
   const [reportIncome, setReportIncome] = useState(0);
   const [reportExpense, setReportExpense] = useState(0);
-  const [showReport, setShowReport] = useState(false);
+  const [showReport, setShowReport] = useState(true);
   const [state, dispatch] = useReducer(counterReducer, showReport);
 
   // Calculate total income and expense
@@ -57,10 +58,10 @@ function App() {
     const incomeItems = datas.filter((item) => item.price > 0);
     const expenseItems = datas.filter((item) => item.price < 0);
     // Calculate total income
-    totalIncome = incomeItems.reduce((acc, curr) => acc + curr.price, 0);
+    totalIncome = incomeItems.reduce((acc, curr) => acc + curr.price, 0).toFixed(2);;
 
     // Calculate total expense
-    totalExpense = expenseItems.reduce((acc, curr) => acc + curr.price, 0) * -1;
+    totalExpense = (expenseItems.reduce((acc, curr) => acc + curr.price, 0) * -1).toFixed(2);
     // console.log("income = ", totalIncome);
     setReportIncome(totalIncome);
     setReportExpense(totalExpense);
@@ -92,38 +93,64 @@ function App() {
   };
 
   return (
-    <DataProvider>
-      <div className="App">
-        <header className="App-header">
-          <div>
-            <Title />
-            <Hello />
-            <button onClick={handleToggleReport}>
-              {showReport ? "Hide" : "Show"} Report
-            </button>
-            {showReport && (
-              <ReportComponent
-                totalIncome={reportIncome}
-                totalExpense={reportExpense}
-              />
-            )}
-            <FormComp AddItem={addItem} />
-            <Description AddnewItem={NewItem} />
-            <Transaction datas={datas} />
-          </div>
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>Please see detail in the link below:</p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    </DataProvider>
+    <Router>
+      <DataProvider>
+        <div className="App">
+          <header className="App-header">
+            <div>
+              <Title />
+              <Hello />
+              <div className="button-container">
+                  <Link to="/balance" className="button-link">
+                    Balance
+                  </Link>
+                  <Link to="/expense" className="button-link">
+                    Add
+                  </Link>
+              </div>
+              <Routes>
+                <Route
+                  path="/balance"
+                  element={
+                    showReport && (
+                      <ReportComponent
+                        totalIncome={reportIncome}
+                        totalExpense={reportExpense}
+                      />
+                    )
+                  }
+                ></Route>
+                <Route
+                  path="/expense"
+                  element={<FormComp AddItem={addItem} />}
+                ></Route>
+              </Routes>
+              <button onClick={handleToggleReport}>
+                {showReport ? "Hide" : "Show"} Report
+              </button>
+              {/* {showReport && (
+                <ReportComponent
+                  totalIncome={reportIncome}
+                  totalExpense={reportExpense}
+                />
+              )} */}
+              <Description AddnewItem={NewItem} />
+              <Transaction datas={datas} />
+            </div>
+            <img src={logo} className="App-logo" alt="logo" />
+            <p>Please see detail in the link below:</p>
+            <a
+              className="App-link"
+              href="https://reactjs.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Learn React
+            </a>
+          </header>
+        </div>
+      </DataProvider>
+    </Router>
   );
 }
 

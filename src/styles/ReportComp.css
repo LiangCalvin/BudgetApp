@@ -5,6 +5,8 @@
     padding: 5px;
     margin-bottom: 20px;
     border-radius: 20px; /* Increased border radius for a more rounded look */
+    width: 300px; /* Fixed width for the container */
+    overflow: auto; /* Allow overflow content to be scrolled */
 
   }
   
@@ -24,6 +26,9 @@
   .expense {
     flex: 1;
     padding: 10px;
+    max-width: 150px; /* Set a maximum width for the elements */
+    overflow: auto; /* Allow overflow content to be scrolled */
+
   }
   
   .income {
